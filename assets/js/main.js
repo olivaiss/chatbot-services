@@ -10,7 +10,12 @@ function switchLang(lang) {
   var mobileEl = document.getElementById('currentLangMobile');
   if (mobileEl) mobileEl.textContent = lang.toUpperCase();
   localStorage.setItem('lang', lang);
+  // close dropdown after selecting
+  document.querySelectorAll('.lang-select').forEach(function(s) {
+    s.classList.remove('open');
+  });
 }
+
 // restore saved lang — default: th
 (function() {
   const saved = localStorage.getItem('lang') || 'th';
@@ -18,3 +23,23 @@ function switchLang(lang) {
   document.querySelector('.lang-option[data-lang="' + saved + '"]')?.classList.add('active');
   document.getElementById('currentLang').textContent = saved.toUpperCase();
 })();
+
+// ── Lang-select toggle (fix touch/mobile hover issue) ──
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.lang-select').forEach(function(sel) {
+    sel.addEventListener('click', function(e) {
+      // close all other lang-selects
+      document.querySelectorAll('.lang-select').forEach(function(s) {
+        if (s !== sel) s.classList.remove('open');
+      });
+      this.classList.toggle('open');
+      e.stopPropagation();
+    });
+  });
+  // close when clicking outside
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.lang-select').forEach(function(s) {
+      s.classList.remove('open');
+    });
+  });
+});

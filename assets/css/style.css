@@ -587,7 +587,8 @@ body {
   z-index: 1000;
   box-shadow: var(--shadow-hover);
 }
-.lang-select:hover .lang-options {
+.lang-select:hover .lang-options,
+.lang-select.open .lang-options {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
