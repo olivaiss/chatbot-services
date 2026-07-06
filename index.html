@@ -21,6 +21,7 @@
         <a href="index.html">หน้าแรก</a>
         <a href="index.html#features">ฟีเจอร์</a>
         <a href="index.html#services">บริการ</a>
+        <a href="index.html#guide">คู่มือ</a>
         <a href="index.html#pricing">ราคา</a>
         <a href="index.html#contact">ติดต่อ</a>
       </div>
@@ -93,6 +94,7 @@
         <a href="index.html">หน้าแรก</a>
         <a href="index.html#features">ฟีเจอร์</a>
         <a href="index.html#services">บริการ</a>
+        <a href="index.html#guide">คู่มือ</a>
         <a href="index.html#pricing">ราคา</a>
         <a href="index.html#contact">ติดต่อ</a>
         <div class="mobile-actions">
@@ -283,6 +285,134 @@
     </div>
   </section>
 
+  <!-- ── Discord & Instagram Services ── -->
+  <section class="section" id="community" style="background: var(--bg);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Discord & Instagram</h2>
+        <p>ขยายช่องทางการสื่อสารไปยังชุมชน Discord และ Instagram ของคุณ</p>
+      </div>
+      <div class="grid-2">
+        <div class="card fade-in">
+          <div class="card-icon"><span data-icon="discord" data-weight="brands"></span></div>
+          <h3>Discord Community Management</h3>
+          <p>จัดการชุมชน Discord ของคุณด้วยบอทอัจฉริยะ - ต้อนรับสมาชิกใหม่ ตั้งค่าระบบ Ticket, Auto-Mod และแจ้งเตือนกิจกรรมต่างๆ</p>
+          <ul>
+            <li>Auto-Welcome & Role Assignment</li>
+            <li>Ticket System อัตโนมัติ</li>
+            <li>Moderation & Auto-Mod</li>
+            <li>Custom Commands</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon"><span data-icon="instagram" data-weight="brands"></span></div>
+          <h3>Instagram DM Automation</h3>
+          <p>ตอบกลับ DM และ Comment บน Instagram อัตโนมัติด้วย AI จัดการข้อความจากลูกค้าหลายพันข้อความต่อวัน</p>
+          <ul>
+            <li>Auto-Reply DM + Comments</li>
+            <li>Quick Replies Templates</li>
+            <li>CRM Integration</li>
+            <li>Analytics Dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Setup Guide ── -->
+  <section class="section" id="guide" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="section-header">
+        <h2>คู่มือการเชื่อมต่อ</h2>
+        <p>วิธีเชื่อมต่อแต่ละแพลตฟอร์มกับ NextGenBot — เลือกเลยว่าสนใจแพลตฟอร์มไหน</p>
+      </div>
+      <div class="guide-tabs" id="guideTabs">
+        <button class="gt-btn active" data-platform="gl-line"><span data-icon="line" data-weight="brands"></span> LINE</button>
+        <button class="gt-btn" data-platform="gl-messenger"><span data-icon="messenger" data-weight="brands"></span> Messenger</button>
+        <button class="gt-btn" data-platform="gl-whatsapp"><span data-icon="whatsapp" data-weight="brands"></span> WhatsApp</button>
+        <button class="gt-btn" data-platform="gl-telegram"><span data-icon="telegram" data-weight="brands"></span> Telegram</button>
+        <button class="gt-btn" data-platform="gl-tiktok"><span data-icon="tiktok" data-weight="brands"></span> TikTok</button>
+        <button class="gt-btn" data-platform="gl-discord"><span data-icon="discord" data-weight="brands"></span> Discord</button>
+        <button class="gt-btn" data-platform="gl-instagram"><span data-icon="instagram" data-weight="brands"></span> Instagram</button>
+        <button class="gt-btn" data-platform="gl-website"><span data-icon="globe" data-weight="regular"></span> Website</button>
+      </div>
+      <div class="guide-content" id="guideContent">
+        <div class="guide-panel active" id="panel-gl-line">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สมัคร LINE OA</strong><p>ไปที่ manager.line.biz หรือใช้ LINE Developers</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>สร้าง Messaging API</strong><p>รับ Channel Access Token จาก LINE Developers</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>ตั้ง Webhook</strong><p>ใส่ URL: <code>api.nextgenbot.com/webhook/line</code></p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ Token ใน NextGenBot → Save</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-messenger">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สร้าง Meta App</strong><p>ไปที่ developers.facebook.com → My Apps</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>เพิ่ม Messenger</strong><p>Add Product → Messenger → เชื่อมต่อเพจ</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>สร้าง Token</strong><p>Generate Page Access Token และ Webhook URL</p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ Token ใน NextGenBot → เสร็จ!</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-whatsapp">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สมัคร WhatsApp API</strong><p>ผ่าน Meta Business Manager → WhatsApp Account</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>สร้าง Token</strong><p>Permanent Token จาก Meta for Developers</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>ตั้ง Webhook</strong><p>ใส่ URL: <code>api.nextgenbot.com/webhook/whatsapp</code></p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ Phone ID + Token ใน NextGenBot</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-telegram">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สร้างบอท</strong><p>พิมพ์ <code>/newbot</code> ใน @BotFather บน Telegram</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>รับ Token</strong><p>คัดลอก HTTP API Token ที่ BotFather ส่งมา</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>ตั้ง Webhook</strong><p>เรียก setWebhook พร้อม URL ของ NextGenBot</p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ Token ใน NextGenBot → Save → เริ่มทำงาน!</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-tiktok">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สมัคร Business Account</strong><p>สมัคร TikTok Business Account ก่อน</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>สร้าง App</strong><p>TikTok Developers → สร้าง App + เลือก permissions</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>รับ Access Token</strong><p>ทำ OAuth 2.0 ขอ Access + Refresh Token</p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ App ID, Token ใน NextGenBot Settings</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-discord">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สร้างแอป</strong><p>ไปที่ discord.com/developers → New Application</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>สร้าง Bot Token</strong><p>Add Bot → Reset Token → คัดลอก Token</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>เชิญบอท</strong><p>OAuth2 URL Generator → เลือก bot + permissions</p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ Token + Guild ID ใน NextGenBot</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-instagram">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>สลับเป็น Business</strong><p>Settings → Account → Switch to Professional → Business</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>เชื่อม Facebook Page</strong><p>ใน Meta Business Suite เชื่อมต่อ IG กับ Facebook</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>สร้าง Token</strong><p>Graph API → ขอ IG Business ID + Access Token</p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>เชื่อมต่อ</strong><p>ใส่ IG Business ID + Token ใน NextGenBot</p></div></div>
+          </div>
+        </div>
+        <div class="guide-panel" id="panel-gl-website">
+          <div class="guide-vid"><video src="assets/video/111.mp4" controls poster="assets/video/1.jpg"></video></div>
+          <div class="guide-steps">
+            <div class="gs"><span class="gs-num">1</span><div><strong>เปิด Widget</strong><p>NextGenBot Settings → Website Widget → Enable</p></div></div>
+            <div class="gs"><span class="gs-num">2</span><div><strong>ปรับแต่ง</strong><p>เลือกสี ปุ่ม ตำแหน่ง widget ให้เข้ากับเว็บคุณ</p></div></div>
+            <div class="gs"><span class="gs-num">3</span><div><strong>คัดลอกโค้ด</strong><p>กด Copy ได้ snippet: <code>&lt;script&gt;...&lt;/script&gt;</code></p></div></div>
+            <div class="gs"><span class="gs-num">4</span><div><strong>แปะบนเว็บ</strong><p>วางก่อน <code>&lt;/body&gt;</code> ในทุกหน้า → เสร็จ!</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Pricing ── -->
   <section class="section" id="pricing">
     <div class="container">
@@ -405,17 +535,82 @@
   </section>
 
   <!-- ── Contact ── -->
-  <section id="contact" style="padding: 48px 0 80px;">
+  <section class="section" id="contact">
     <div class="container">
-      <div class="contact-section">
+      <div class="section-header">
         <h2>พร้อมเริ่มต้นใช้งาน?</h2>
         <p>เริ่มต้นฟรี ไม่ต้องใช้บัตรเครดิต ตั้งค่าได้ใน 5 นาที</p>
-        <div class="contact-channels">
-          <span class="contact-item"><span data-icon="envelope" data-weight="regular"></span> hello@nextgenbot.com</span>
-          <span class="contact-item"><span data-icon="headset" data-weight="regular"></span> 02-123-4567</span>
-          <span class="contact-item"><span data-icon="comment-dots" data-weight="regular"></span> LINE: @nextgenbot</span>
-        </div>
       </div>
+      <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-info-card">
+              <div class="contact-info-item">
+                <span class="contact-info-icon" data-icon="envelope" data-weight="regular"></span>
+                <div>
+                  <div class="contact-info-label">อีเมล</div>
+                  <div class="contact-info-value">hello@nextgenbot.com</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon" data-icon="headset" data-weight="regular"></span>
+                <div>
+                  <div class="contact-info-label">โทรศัพท์</div>
+                  <div class="contact-info-value">02-123-4567</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-icon" data-icon="line" data-weight="brands"></span>
+                <div>
+                  <div class="contact-info-label">LINE Official</div>
+                  <div class="contact-info-value">@nextgenbot</div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-social">
+              <span>หรือติดต่อผ่านแชท</span>
+              <div class="contact-social-icons">
+                <a href="#" class="contact-social-link" aria-label="LINE">
+                  <span data-icon="line" data-weight="brands"></span>
+                </a>
+                <a href="#" class="contact-social-link" aria-label="Messenger">
+                  <span data-icon="messenger" data-weight="brands"></span>
+                </a>
+                <a href="#" class="contact-social-link" aria-label="WhatsApp">
+                  <span data-icon="whatsapp" data-weight="brands"></span>
+                </a>
+                <a href="#" class="contact-social-link" aria-label="Telegram">
+                  <span data-icon="telegram" data-weight="brands"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">ชื่อ-นามสกุล</label>
+                <input type="text" id="contactName" class="form-input" placeholder="ชื่อของคุณ" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">อีเมล</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="you@email.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactPhone">เบอร์โทรศัพท์</label>
+              <input type="tel" id="contactPhone" class="form-input" placeholder="เบอร์โทรศัพท์ (ไม่บังคับ)">
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">ข้อความ</label>
+              <textarea id="contactMessage" class="form-input form-textarea" placeholder="รายละเอียดที่คุณต้องการให้เราติดต่อกลับ..." rows="4" required></textarea>
+            </div>
+            <button type="submit" class="contact-submit">
+              <span>ส่งข้อความ</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M1 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
     </div>
   </section>
 
@@ -429,5 +624,24 @@
   <script src="assets/data/icons.js"></script>
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var gBtns = document.querySelectorAll('#guideTabs .gt-btn');
+      var gPanels = document.querySelectorAll('#guideContent .guide-panel');
+      if (gBtns.length) {
+        gBtns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var platform = this.dataset.platform;
+            gBtns.forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            gPanels.forEach(function(p) { p.classList.remove('active'); });
+            var panel = document.getElementById('panel-' + platform);
+            if (panel) panel.classList.add('active');
+          });
+        });
+      }
+      if (typeof loadIcons === 'function') loadIcons();
+    });
+  </script>
 </body>
 </html>

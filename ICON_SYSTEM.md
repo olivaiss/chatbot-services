@@ -80,6 +80,8 @@ JavaScript ใน `assets/data/icons.js`:
 | `robot` | AI Automation |
 | `shield-check` | Enterprise Security |
 | `users` | Contact & CRM |
+| **`discord`** | **Discord brand (hero pill, services)** |
+| **`instagram`** | **Instagram brand (hero pill, services)** |
 | `globe` | Language selector, Website pill |
 | `gear` | Settings |
 | `headset` | ติดต่อ |

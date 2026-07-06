@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือการติดตั้ง — NextGenBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ── Setup Guide Page Styles ── */
+    .setup-layout {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .setup-sidebar {
+      flex: 0 0 220px;
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .setup-sidebar .platform-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: var(--font);
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+    .setup-sidebar .platform-btn:hover {
+      background: var(--bg-card-alt);
+      color: var(--text);
+    }
+    .setup-sidebar .platform-btn.active {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border-color: var(--btn-border);
+    }
+    .setup-sidebar .platform-btn .icon-svg,
+    .setup-sidebar .platform-btn span[data-icon] svg {
+      width: 18px;
+      height: 18px;
+    }
+    .setup-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .setup-content .platform-section {
+      display: none;
+    }
+    .setup-content .platform-section.active {
+      display: block;
+    }
+    .setup-content h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .setup-content .platform-desc {
+      color: var(--text-secondary);
+      font-size: 15px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      transition: box-shadow 0.2s ease;
+    }
+    .step-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    .step-card .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .step-card .step-header {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-left: 40px;
+    }
+    .step-card .step-img {
+      margin-top: 12px;
+      margin-left: 40px;
+      border-radius: var(--radius-sm);
+      max-width: 100%;
+      border: 1px solid var(--border);
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: var(--bg-card-alt);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .tip-box {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--text);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .tip-box strong {
+      color: var(--text);
+    }
+    @media (max-width: 768px) {
+      .setup-layout { flex-direction: column; }
+      .setup-sidebar {
+        flex: none;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .setup-sidebar .platform-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      .step-card p,
+      .step-card .step-img,
+      .step-card pre {
+        margin-left: 0 !important;
+      }
+      .step-card {
+        padding: 16px;
+      }
+      .step-card .step-header {
+        font-size: 15px;
+      }
+      .step-card pre {
+        font-size: 12px !important;
+        padding: 10px !important;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+    }
+    @media (max-width: 480px) {
+      .setup-sidebar .platform-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+      .step-card pre code {
+        font-size: 11px;
+        word-break: break-all;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header / Navbar ── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/icons/logo.svg" alt="NextGenBot" class="logo-icon">
+        NextGenBot
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="setup-guide.html" style="font-weight:600;">คู่มือ</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </div>
+      <div class="navbar-right">
+        <div class="toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="themeCheckbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLang">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">
+            <span data-icon="right-to-bracket" data-weight="regular"></span>
+            <span>Login</span>
+          </a>
+          <a href="register.html" class="btn-nav btn-nav-register">
+            <span data-icon="user-plus" data-weight="regular"></span>
+            <span>Register</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-right">
+        <div class="lang-select mobile-lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLangMobile">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="setup-guide.html">คู่มือ</a>
+        <a href="index.html#contact">ติดต่อ</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">Login</a>
+          <a href="register.html" class="btn-nav btn-nav-register">Register</a>
+        </div>
+        <div class="mobile-theme-wrapper">
+          <div class="mobile-theme-row">
+            <span data-icon="sun" data-weight="regular" id="themeIcon"></span>
+            <span id="themeLabel">โหมดสว่าง</span>
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox" id="themeCheckboxMobile">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero" style="padding: 100px 0 60px;">
+    <div class="container">
+      <div class="hero-badge">
+        <span data-icon="gear" data-weight="regular"></span>
+        คู่มือฉบับละเอียด
+      </div>
+      <h1>วิธีเชื่อมต่อแต่ละแพลตฟอร์ม<br>ทีละขั้นตอน</h1>
+      <p style="max-width:600px;">
+        เลือกแพลตฟอร์มที่คุณต้องการเชื่อมต่อ แล้วทำตามขั้นตอนด้านล่าง 
+        มีทั้งภาพประกอบและวิดีโอสอน — ตั้งค่าเองได้ ไม่ต้องง้อช่าง
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Setup Guide ── -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="setup-layout">
+
+        <!-- Sidebar -->
+        <div class="setup-sidebar" id="platformSidebar">
+          <button class="platform-btn active" data-platform="line">
+            <span data-icon="line" data-weight="brands"></span> LINE
+          </button>
+          <button class="platform-btn" data-platform="messenger">
+            <span data-icon="messenger" data-weight="brands"></span> Messenger
+          </button>
+          <button class="platform-btn" data-platform="whatsapp">
+            <span data-icon="whatsapp" data-weight="brands"></span> WhatsApp
+          </button>
+          <button class="platform-btn" data-platform="telegram">
+            <span data-icon="telegram" data-weight="brands"></span> Telegram
+          </button>
+          <button class="platform-btn" data-platform="tiktok">
+            <span data-icon="tiktok" data-weight="brands"></span> TikTok
+          </button>
+          <button class="platform-btn" data-platform="discord">
+            <span data-icon="discord" data-weight="brands"></span> Discord
+          </button>
+          <button class="platform-btn" data-platform="instagram">
+            <span data-icon="instagram" data-weight="brands"></span> Instagram
+          </button>
+          <button class="platform-btn" data-platform="website">
+            <span data-icon="globe" data-weight="regular"></span> Website
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="setup-content" id="setupContent">
+
+          <!-- LINE -->
+          <div class="platform-section active" id="section-line">
+            <h3>LINE Official Account</h3>
+            <p class="platform-desc">เชื่อมต่อ LINE OA ของคุณกับ NextGenBot เพื่อตั้งค่า Auto-Reply, Flex Message และแคมเปญการตลาด</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Rr_bTtjFxYc" title="วิธีการสร้าง LINE OA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> สมัคร LINE Official Account</div>
+              <p>ไปที่ <strong>https://manager.line.biz</strong> แล้วสมัครบัญชี LINE OA ฟรี ถ้ามีอยู่แล้วข้ามขั้นตอนนี้</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> สร้าง Messaging API Channel</div>
+              <p>เข้า LINE Developers (<strong>https://developers.line.biz</strong>) → สร้าง Provider → สร้าง Messaging API Channel และรับ <strong>Channel Access Token</strong></p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> ตั้งค่า Webhook</div>
+              <p>ใน LINE Developers ใส่ Webhook URL ที่ได้จาก NextGenBot: <code>https://api.nextgenbot.com/webhook/line</code> และกด Verify</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>ในหน้า Settings ของ NextGenBot ใส่ Channel Access Token และ Channel Secret ที่ได้จาก LINE Developers แล้วกด Save — เสร็จ!</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> ควรเปิด Use Webhook และ Auto-Reply ใน LINE OA Manager ถึงจะทำงานได้สมบูรณ์
+            </div>
+          </div>
+
+          <!-- Messenger -->
+          <div class="platform-section" id="section-messenger">
+            <h3>Facebook Messenger</h3>
+            <p class="platform-desc">เชื่อมต่อเพจ Facebook ของคุณเพื่อรับ-ส่งข้อความกับลูกค้าผ่าน NextGenBot</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/PA08z7__BFA" title="Facebook Messenger Bot Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> สร้าง Meta App</div>
+              <p>ไปที่ <strong>https://developers.facebook.com</strong> → My Apps → สร้างแอปใหม่ เลือก Business</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> เพิ่ม Messenger Product</div>
+              <p>ใน Dashboard กด Add Product → เลือก Messenger → ตั้งค่าให้เชื่อมต่อกับเพจของคุณ</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> สร้าง Page Access Token</div>
+              <p>เลือกเพจ → Generate Token → คัดลอก Page Access Token มาเก็บไว้</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> ตั้งค่า Webhook + เชื่อมต่อ</div>
+              <p>ใส่ Webhook URL: <code>https://api.nextgenbot.com/webhook/messenger</code> → ใส่ Verify Token → Subscribe to messages → นำ Token ไปใส่ใน NextGenBot</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> กรุณาเปิด Required Permissions: <code>pages_messaging</code>, <code>pages_manage_metadata</code> ถึงจะใช้งานได้ครบ
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="platform-section" id="section-whatsapp">
+            <h3>WhatsApp Business</h3>
+            <p class="platform-desc">เชื่อมต่อ WhatsApp Business API เพื่อตอบแชทและส่งแคมเปญผ่าน WhatsApp</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/ul6bMeWcH9Y" title="WhatsApp Business API Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> ลงทะเบียน WhatsApp Business API</div>
+              <p>ผ่าน Meta Business Manager → WhatsApp Account → ขอหมายเลขโทรศัพท์และยืนยัน</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> สร้าง Access Token</div>
+              <p>ใน Meta for Developers → WhatsApp → สร้าง Permanent Token สำหรับใช้งาน</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> ตั้งค่า Webhook</div>
+              <p>ใส่ Webhook URL: <code>https://api.nextgenbot.com/webhook/whatsapp</code> → ตั้งค่า Verify Token</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>เข้า Settings ใน NextGenBot → WhatsApp → ใส่ Phone ID + Token + Webhook Secret ที่ได้ — เสร็จสิ้น</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> WhatsApp Business API มีค่าบริการตามการสนทนา (conversation-based pricing) — เช็กอัตราก่อนเริ่มใช้
+            </div>
+          </div>
+
+          <!-- Telegram -->
+          <div class="platform-section" id="section-telegram">
+            <h3>Telegram Bot</h3>
+            <p class="platform-desc">สร้าง Telegram Bot ด้วย BotFather และเชื่อมต่อกับ NextGenBot</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/kT8WdWNkRUY" title="Telegram Bot Setup Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> พิมพ์ @BotFather ใน Telegram</div>
+              <p>ค้นหา BotFather ใน Telegram แล้วพิมพ์ <code>/newbot</code> เพื่อสร้างบอทใหม่</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> รับ Token</div>
+              <p>ตั้งชื่อบอทและ username → BotFather จะส่ง <strong>HTTP API Token</strong> มาให้ — คัดลอกเก็บไว้</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> ตั้งค่า Webhook</div>
+              <p>ใช้ URL: <code>https://api.telegram.org/bot&lt;TOKEN&gt;/setWebhook?url=https://api.nextgenbot.com/webhook/telegram</code></p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>นำ Telegram Bot Token ไปใส่ใน NextGenBot Settings แล้วกด Save — เสร็จ!</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> ปิด Privacy Mode ใน BotFather ด้วย <code>/setprivacy</code> ถ้าต้องการให้บอทอ่านทุกข้อความใน group
+            </div>
+          </div>
+
+          <!-- TikTok -->
+          <div class="platform-section" id="section-tiktok">
+            <h3>TikTok</h3>
+            <p class="platform-desc">เชื่อมต่อ TikTok Business Account เพื่อจัดการข้อความและคอมเมนต์</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/88Lf9Ov6P88" title="TikTok Bot Automation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> สร้าง TikTok Business Account</div>
+              <p>สมัคร TikTok Business Account ที่ <strong>https://www.tiktok.com/business</strong></p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> สร้าง TikTok App</div>
+              <p>ไปที่ TikTok Developers → สร้าง App → เลือก permissions: <code>user.info.basic</code>, <code>video.upload</code>, <code>message.send</code></p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> รับ Access Token</div>
+              <p>ทำ OAuth 2.0 เพื่อขอ Access Token และ Refresh Token จาก TikTok API</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>ใส่ App ID, Client Secret, Access Token และ Webhook URL ในหน้า Settings → เสร็จ!</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> TikTok API ยังอยู่ในช่วงพัฒนา — ฟังก์ชันบางอย่างอาจต้องรอการอัปเดตจาก TikTok
+            </div>
+          </div>
+
+          <!-- Discord -->
+          <div class="platform-section" id="section-discord">
+            <h3>Discord</h3>
+            <p class="platform-desc">เชื่อมต่อ Discord Bot เพื่อจัดการ Community, Ticket System และ Moderation</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/Oy5HGvrxM4o" title="Discord Bot Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> สร้างแอปบน Discord Developer Portal</div>
+              <p>ไปที่ <strong>https://discord.com/developers/applications</strong> → New Application → ตั้งชื่อ</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> สร้าง Bot Token</div>
+              <p>ไปที่ Bot → Add Bot → Reset Token → คัดลอก Token มาเก็บ</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> เชิญบอทเข้า Server</div>
+              <p>ไปที่ OAuth2 → URL Generator → เลือก scopes: <code>bot</code> → เลือก permissions → เปิด URL เพื่อเชิญบอท</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>ใส่ Bot Token + Guild ID + Channel ID ใน NextGenBot Settings → Save → บอทเริ่มทำงาน!</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> เปิด Intents: <code>MESSAGE CONTENT INTENT</code>, <code>SERVER MEMBERS INTENT</code> ใน Developer Portal ด้วย
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div class="platform-section" id="section-instagram">
+            <h3>Instagram</h3>
+            <p class="platform-desc">เชื่อมต่อ Instagram Business Account เพื่อตอบ DM และ Comment อัตโนมัติ</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/4KA3_kyct9c" title="Instagram DM Automation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> เปลี่ยนเป็น Business Account</div>
+              <p>ใน Instagram → Settings → Account → Switch to Professional Account → เลือก Business</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> เชื่อมต่อกับ Facebook Page</div>
+              <p>Instagram Business ต้องเชื่อมกับ Facebook Page — ตั้งค่าใน Meta Business Suite</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> สร้าง Access Token</div>
+              <p>ใน Meta for Developers → ใช้ Graph API เพื่อขอ Instagram Business User ID + Access Token ขอบเขต <code>instagram_basic, instagram_manage_messages, instagram_manage_comments</code></p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> เชื่อมต่อกับ NextGenBot</div>
+              <p>ใส่ Instagram Business ID + Access Token + Facebook Page ID ใน Settings → เสร็จ!</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> Instagram API จำกัดการตอบ DM เฉพาะข้อความที่ลูกค้าส่งมาก่อน — ไม่สามารถเริ่มแชทก่อนได้
+            </div>
+          </div>
+
+          <!-- Website Widget -->
+          <div class="platform-section" id="section-website">
+            <h3>Website Chat Widget</h3>
+            <p class="platform-desc">ติดตั้ง Chat Widget บนเว็บไซต์ของคุณ เพียงแค่แปะโค้ดสั้นๆ</p>
+
+            <div class="video-wrapper">
+              <iframe src="https://www.youtube.com/embed/pUyRfGrvnc4" title="Website Chatbot Widget Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">1</span> เปิดการใช้งาน Chat Widget</div>
+              <p>ใน NextGenBot Settings → Website Widget → เปิด toggle "Enable Chat Widget"</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">2</span> ปรับแต่งหน้าตา</div>
+              <p>เลือกสี ปุ่ม แชทบับเบิล ข้อความต้อนรับ และตำแหน่ง (ซ้าย/ขวา) ตามแบรนด์ของคุณ</p>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">3</span> คัดลอกโค้ด</div>
+              <p>กดปุ่ม Copy Code จะได้โค้ดแบบนี้:</p>
+              <pre style="background:var(--bg-card-alt);padding:12px;border-radius:6px;font-size:13px;overflow-x:auto;margin-top:8px;margin-left:40px;"><code>&lt;script&gt;
+  window.nextgenbotWidget = { appId: "YOUR_APP_ID" };
+&lt;/script&gt;
+&lt;script src="https://widget.nextgenbot.com/chat.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+            <div class="step-card">
+              <div class="step-header"><span class="step-num">4</span> แปะบนเว็บไซต์</div>
+              <p>นำโค้ดไปแปะก่อน <code>&lt;/body&gt;</code> ในทุกหน้าของเว็บไซต์คุณ — เสร็จ! Widget จะแสดงโดยอัตโนมัติ</p>
+            </div>
+
+            <div class="tip-box">
+              <strong>💡 Tips:</strong> ทดสอบ widget โดยเปิดหน้าเว็บแล้วคลิกแชทบับเบิล — ข้อความจะเข้ามาที่ Inbox ของ NextGenBot ทันที
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NextGenBot. All rights reserved. Made with ❤️ in Thailand.</p>
+    </div>
+  </footer>
+
+  <script src="assets/data/icons.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // ── Platform Tab Switching ──
+    document.addEventListener('DOMContentLoaded', function() {
+      const btns = document.querySelectorAll('.platform-btn');
+      const sections = document.querySelectorAll('.platform-section');
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const platform = this.dataset.platform;
+          // Update buttons
+          btns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          // Update sections
+          sections.forEach(s => s.classList.remove('active'));
+          document.getElementById('section-' + platform).classList.add('active');
+        });
+      });
+
+      // Load icons on initial render
+      if (typeof loadIcons === 'function') loadIcons();
+    });
+  </script>
+</body>
+</html>
