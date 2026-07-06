@@ -1,0 +1,56 @@
+<!-- ── Header / Navbar ── -->
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      NextGenBot
+    </a>
+    <div class="navbar-links">
+      <a href="index.html#features">ฟีเจอร์</a>
+      <a href="index.html#services">บริการ</a>
+      <a href="index.html#pricing">ราคา</a>
+      <a href="index.html#contact">ติดต่อ</a>
+    </div>
+    <div class="navbar-right">
+      <div class="toggle-switch">
+        <label class="switch-label">
+          <input type="checkbox" class="checkbox" id="themeCheckbox">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="lang-select">
+        <div class="lang-selected">
+          <span data-icon="globe" data-weight="regular"></span>
+          <span class="lang-code" id="currentLang">TH</span>
+          <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+        </div>
+        <div class="lang-options">
+          <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span>ภาษาไทย</span>
+            <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+          </div>
+          <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span>English</span>
+            <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-nav btn-nav-login">
+          <span data-icon="right-to-bracket" data-weight="regular"></span>
+          <span>Login</span>
+        </a>
+        <a href="register.html" class="btn-nav btn-nav-register">
+          <span data-icon="user-plus" data-weight="regular"></span>
+          <span>Register</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

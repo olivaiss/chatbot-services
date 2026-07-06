@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — NextGenBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/icons/logo.svg" alt="NextGenBot" class="logo-icon">
+        NextGenBot
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </div>
+      <div class="navbar-right">
+        <div class="toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="themeCheckbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLang">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">
+            <span data-icon="right-to-bracket" data-weight="regular"></span>
+            <span>Login</span>
+          </a>
+          <a href="register.html" class="btn-nav btn-nav-register">
+            <span data-icon="user-plus" data-weight="regular"></span>
+            <span>Register</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-right">
+        <div class="lang-select mobile-lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLangMobile">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">Login</a>
+          <a href="register.html" class="btn-nav btn-nav-register">Register</a>
+        </div>
+        <div class="mobile-theme-wrapper">
+          <div class="mobile-theme-row">
+            <span data-icon="sun" data-weight="regular" id="themeIcon"></span>
+            <span id="themeLabel">โหมดสว่าง</span>
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox" id="themeCheckboxMobile">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Content ── -->
+  <div class="page">
+    <div class="container">
+
+      <div class="page-header">
+        <div class="icon-wrap">
+          <span data-icon="file-lines" data-weight="regular"></span>
+        </div>
+        <div>
+          <h1>Terms of Service</h1>
+          <div class="meta">Last updated: July 5, 2026</div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing or using NextGenBot ("the Platform"), you agree to be bound by these Terms of Service. 
+          If you do not agree to all the terms, you may not access or use the Platform.
+        </p>
+        <p>
+          These terms apply to all visitors, users, and others who access or use the Platform.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>2. Description of Service</h2>
+        <p>
+          NextGenBot provides a multi-channel chatbot and customer communication platform that enables 
+          businesses to connect with their customers across LINE, Messenger, WhatsApp, Telegram, TikTok, 
+          and website widget. Features include:
+        </p>
+        <ul>
+          <li>Unified inbox for managing conversations across channels</li>
+          <li>AI-powered chatbot with natural language processing</li>
+          <li>Campaign management (broadcast &amp; narrowcast)</li>
+          <li>Analytics dashboard and reporting</li>
+          <li>Contact management and CRM tools</li>
+          <li>API and webhook integrations</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h2>3. User Accounts</h2>
+        <h3>3.1 Registration</h3>
+        <p>
+          You must create an account to access certain features. You agree to provide accurate and 
+          complete information and to keep your account information updated.
+        </p>
+        <h3>3.2 Responsibility</h3>
+        <p>
+          You are responsible for maintaining the confidentiality of your account credentials and 
+          for all activities that occur under your account. Notify us immediately of any unauthorized use.
+        </p>
+        <h3>3.3 Account Types</h3>
+        <p>
+          We offer Free, Pro, Business, and Enterprise plans. Features and limitations vary by plan. 
+          We reserve the right to modify plan details with reasonable notice.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>4. Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use the Platform for any unlawful purpose or in violation of any applicable laws</li>
+          <li>Send spam, unsolicited messages, or harassing content</li>
+          <li>Attempt to gain unauthorized access to any part of the Platform</li>
+          <li>Interfere with or disrupt the integrity or performance of the Platform</li>
+          <li>Use the Platform to store or transmit malware or malicious code</li>
+          <li>Reverse engineer, decompile, or disassemble any part of the Platform</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h2>5. Intellectual Property</h2>
+        <p>
+          The Platform and its original content, features, and functionality are owned by NextGenBot 
+          and are protected by international copyright, trademark, and other intellectual property laws.
+        </p>
+        <p>
+          You retain all rights to the content you submit through the Platform. By submitting content, 
+          you grant us a license to use, store, and process it solely for providing the Service to you.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>6. Privacy &amp; Data</h2>
+        <p>
+          Your use of the Platform is also governed by our Privacy Policy. We implement reasonable 
+          security measures to protect your data, including encryption in transit and at rest, 
+          two-factor authentication, and regular security audits.
+        </p>
+        <p>
+          We do not sell your personal data to third parties. Data may be shared with service 
+          providers solely for the purpose of operating the Platform.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>7. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, NextGenBot shall not be liable for any indirect, 
+          incidental, special, consequential, or punitive damages arising out of or relating to 
+          your use of the Platform.
+        </p>
+        <p>
+          Our total liability for any claims under these terms shall not exceed the amount you have 
+          paid us in the twelve (12) months preceding the claim.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>8. Termination</h2>
+        <p>
+          We may terminate or suspend your account at any time for violation of these terms, 
+          illegal activity, or conduct that could harm other users or the Platform.
+        </p>
+        <p>
+          You may terminate your account at any time from your account settings. Upon termination, 
+          your right to use the Platform will immediately cease.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>9. Changes to Terms</h2>
+        <p>
+          We reserve the right to modify these terms at any time. We will provide notice of material 
+          changes via email or through the Platform. Your continued use after changes constitutes 
+          acceptance of the new terms.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h2>10. Contact</h2>
+        <p>
+          If you have any questions about these Terms, please contact us at:
+        </p>
+        <p>
+          Email: hello@nextgenbot.com<br>
+          Phone: 02-123-4567<br>
+          LINE: @nextgenbot
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NextGenBot. All rights reserved. Made with ❤️ in Thailand.</p>
+    </div>
+  </footer>
+
+  <script src="assets/data/icons.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

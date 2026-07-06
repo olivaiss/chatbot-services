@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGenBot — บริการ Chatbot ครบวงจร</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ── Header / Navbar ── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/icons/logo.svg" alt="NextGenBot" class="logo-icon">
+        NextGenBot
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </div>
+      <div class="navbar-right">
+        <div class="toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="themeCheckbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLang">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">
+            <span data-icon="right-to-bracket" data-weight="regular"></span>
+            <span>Login</span>
+          </a>
+          <a href="register.html" class="btn-nav btn-nav-register">
+            <span data-icon="user-plus" data-weight="regular"></span>
+            <span>Register</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile right: lang + hamburger (mobile/tablet) -->
+      <div class="mobile-right">
+        <div class="lang-select mobile-lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLangMobile">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">Login</a>
+          <a href="register.html" class="btn-nav btn-nav-register">Register</a>
+        </div>
+        <div class="mobile-theme-wrapper">
+          <div class="mobile-theme-row">
+            <span data-icon="sun" data-weight="regular" id="themeIcon"></span>
+            <span id="themeLabel">โหมดสว่าง</span>
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox" id="themeCheckboxMobile">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span data-icon="robot" data-weight="regular"></span>
+        แพลตฟอร์มแชทบอทครบวงจร
+      </div>
+      <h1>ยกระดับธุรกิจคุณ<br>ด้วยแชทบอทอัจฉริยะ</h1>
+      <p>
+        เชื่อมต่อทุกช่องทาง LINE, Messenger, WhatsApp, Telegram, TikTok และ Website Widget 
+        ไว้ในที่เดียว — จัดการข้อความ ตอบกลับอัตโนมัติด้วย AI ครบจบในแพลตฟอร์มเดียว
+      </p>
+      <a href="#contact" class="hero-btn">เริ่มต้นใช้งานฟรี →</a>
+      <div class="hero-platforms">
+        <span class="hero-pill"><span data-icon="line" data-weight="brands"></span> LINE</span>
+        <span class="hero-pill"><span data-icon="messenger" data-weight="brands"></span> Messenger</span>
+        <span class="hero-pill"><span data-icon="whatsapp" data-weight="brands"></span> WhatsApp</span>
+        <span class="hero-pill"><span data-icon="telegram" data-weight="brands"></span> Telegram</span>
+        <span class="hero-pill"><span data-icon="tiktok" data-weight="brands"></span> TikTok</span>
+        <span class="hero-pill"><span data-icon="globe" data-weight="regular"></span> Website</span>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">12,000+</div><div class="hero-stat-label">ธุรกิจที่ไว้วางใจ</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">แพลตฟอร์มที่รองรับ</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">24/7</div><div class="hero-stat-label">AI ตอบอัตโนมัติ</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">฿0</div><div class="hero-stat-label">เริ่มต้นฟรี</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="section" id="features" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="section-header">
+        <h2>ฟีเจอร์เด่น</h2>
+        <p>รวมเครื่องมือจัดการแชท การตลาด และลูกค้าสัมพันธ์ไว้ในที่เดียว</p>
+      </div>
+      <div class="grid-3">
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="comment-dots" data-weight="regular"></div>
+          <h3>Unified Inbox</h3>
+          <p>รวมข้อความจากทุกแพลตฟอร์มไว้ในกล่องข้อความเดียว — ตอบกลับได้ทันที ไม่ต้องสลับแอปพลิเคชัน</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="message-bot" data-weight="regular"></div>
+          <h3>AI Chatbot</h3>
+          <p>ตอบกลับลูกค้าอัตโนมัติ 24 ชม. ด้วย AI รองรับ Intent Classification และ Entity Extraction เรียนรู้จากข้อความจริง</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="bullhorn" data-weight="regular"></div>
+          <h3>Campaign Manager</h3>
+          <p>สร้างและส่งแคมเปญการตลาดแบบ Broadcast และ Narrowcast พร้อม A/B Testing และ Analytics</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="chart-line-up" data-weight="regular"></div>
+          <h3>Analytics Dashboard</h3>
+          <p>ดูสถิติแบบ Real-time ติดตาม Conversion Rate, CSAT Score และ Agent Performance</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="users-gear" data-weight="regular"></div>
+          <h3>Contact Management</h3>
+          <p>จัดการผู้ติดต่อทุก Platform ในที่เดียว แบ่งกลุ่ม ติดแท็ก ดูประวัติการสนทนาแบบครบวงจร</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="code" data-weight="regular"></div>
+          <h3>API & Webhooks</h3>
+          <p>เชื่อมต่อระบบ CRM, E-commerce หรือระบบหลังบ้านผ่าน REST API และ Webhooks แบบ Real-time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="container">
+      <div style="max-width:800px;margin:0 auto;">
+        <div class="section-header">
+          <h2>เกี่ยวกับเรา</h2>
+          <p>สร้างอนาคตของ Conversational AI</p>
+        </div>
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.8;text-align:center;margin-bottom:32px;">
+          NextGenBot เป็นแพลตฟอร์มแชทบอทที่ครบวงจรที่สุดสำหรับธุรกิจยุคใหม่ 
+          เราช่วยให้คุณเชื่อมต่อกับลูกค้าผ่านทุกช่องทางที่สำคัญ พร้อมระบบ AI ที่ชาญฉลาด 
+          ทำให้การบริการลูกค้าเป็นเรื่องง่าย มีประสิทธิภาพ และวัดผลได้
+        </p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;">
+          <span class="hero-pill"><span data-icon="shield-check" data-weight="regular"></span> AI NLP รองรับภาษาไทย</span>
+          <span class="hero-pill"><span data-icon="gear" data-weight="regular"></span> Auto-Reply ตาม Keyword / Regex</span>
+          <span class="hero-pill"><span data-icon="comment-dots" data-weight="regular"></span> Flex Message & Rich Menu</span>
+          <span class="hero-pill"><span data-icon="users" data-weight="regular"></span> ระบบจัดการทีม</span>
+          <span class="hero-pill"><span data-icon="shield-check" data-weight="regular"></span> ความปลอดภัย Enterprise</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Services ── -->
+  <section class="section" id="services" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="section-header">
+        <h2>บริการของเรา</h2>
+        <p>เลือกโซลูชันที่เหมาะกับธุรกิจของคุณ</p>
+      </div>
+      <div class="grid-3">
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="comment-sms" data-weight="regular"></div>
+          <h3>Multi-Channel Chat</h3>
+          <p>เชื่อมต่อทุกแพลตฟอร์มแชทในที่เดียว จัดการข้อความจาก LINE, Messenger, WhatsApp, Telegram, TikTok</p>
+          <ul>
+            <li>Unified Inbox ครบทุกช่องทาง</li>
+            <li>Auto-Assign แอดมินอัตโนมัติ</li>
+            <li>ประวัติแชทไม่จำกัด</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="robot" data-weight="regular"></div>
+          <h3>AI Automation</h3>
+          <p>ระบบ AI ตอบกลับอัตโนมัติ เรียนรู้จากข้อความจริง รองรับ Intent Classification, Keyword และ Regex</p>
+          <ul>
+            <li>AI Chatbot 24/7</li>
+            <li>Auto-Reply 10 Keyword/กฏ</li>
+            <li>Flex Message, Sticker, Image</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="bullhorn" data-weight="regular"></div>
+          <h3>Marketing Campaigns</h3>
+          <p>Broadcast และ Narrowcast ถึงลูกค้าทุกช่องทาง พร้อมวัดผล Conversion แบบ Real-time</p>
+          <ul>
+            <li>Broadcast + Narrowcast</li>
+            <li>A/B Testing</li>
+            <li>Analytics Dashboard</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="chart-bar" data-weight="regular"></div>
+          <h3>Analytics & Insights</h3>
+          <p>Dashboard แสดงผลแบบ Real-time วิเคราะห์พฤติกรรมลูกค้า CSAT, Conversion, Agent Performance</p>
+          <ul>
+            <li>Real-time Dashboard</li>
+            <li>CSAT Score</li>
+            <li>Export Reports (.csv)</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="users" data-weight="regular"></div>
+          <h3>Contact & CRM</h3>
+          <p>จัดการผู้ติดต่อทุก Platform แบ่งกลุ่ม ติดแท็ก ดูประวัติ และ CRM แบบครบวงจร</p>
+          <ul>
+            <li>รวมข้อมูลทุกแพลตฟอร์ม</li>
+            <li>กลุ่มแบบ Static + Dynamic</li>
+            <li>Custom Fields</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon" data-icon="shield-check" data-weight="regular"></div>
+          <h3>Enterprise Security</h3>
+          <p>ความปลอดภัยระดับองค์กร ด้วย 2FA, End-to-end Encryption, Audit Logs และ API Rate Limiting</p>
+          <ul>
+            <li>2FA ความปลอดภัย</li>
+            <li>Webhook Outgoing</li>
+            <li>API Access</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2>ราคาแพ็กเกจ</h2>
+        <p>เริ่มต้นฟรี ไม่มีค่าใช้จ่าย ยกเลิกเมื่อไหร่ก็ได้</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Free</div>
+          <div class="pricing-amount">ฟรี</div>
+          <div class="pricing-period">ทดลอง 7 วัน</div>
+          <p class="pricing-desc">สำหรับทดลองใช้</p>
+          <ul class="pricing-features">
+            <li><span class="mark on">✓</span> 1 ช่องทาง</li>
+            <li><span class="mark on">✓</span> Contacts 500 ราย</li>
+            <li><span class="mark on">✓</span> ข้อความ 1,000/เดือน</li>
+            <li><span class="mark on">✓</span> ทีม 1 คน</li>
+          </ul>
+          <button class="pricing-btn">เลือกแพ็กเกจ</button>
+        </div>
+        <div class="pricing-card featured">
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-amount">฿1,290</div>
+          <div class="pricing-period">/เดือน</div>
+          <p class="pricing-desc">สำหรับธุรกิจที่ต้องการฟีเจอร์ครบ</p>
+          <ul class="pricing-features">
+            <li><span class="mark on">✓</span> 3 ช่องทาง</li>
+            <li><span class="mark on">✓</span> Contacts 10,000 ราย</li>
+            <li><span class="mark on">✓</span> ข้อความ 50,000/เดือน</li>
+            <li><span class="mark on">✓</span> ทีม 5 คน</li>
+            <li><span class="mark on">✓</span> AI Chatbot</li>
+            <li><span class="mark on">✓</span> API Access</li>
+            <li><span class="mark on">✓</span> Analytics Dashboard</li>
+          </ul>
+          <button class="pricing-btn">เลือกแพ็กเกจ</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">Business</div>
+          <div class="pricing-amount">฿3,990</div>
+          <div class="pricing-period">/เดือน</div>
+          <p class="pricing-desc">สำหรับองค์กรที่ต้องการไร้ขีดจำกัด</p>
+          <ul class="pricing-features">
+            <li><span class="mark on">✓</span> 10 ช่องทาง</li>
+            <li><span class="mark on">✓</span> Contacts ไม่จำกัด</li>
+            <li><span class="mark on">✓</span> ข้อความ 500,000/เดือน</li>
+            <li><span class="mark on">✓</span> ทีม 15 คน</li>
+            <li><span class="mark on">✓</span> Custom Branding</li>
+            <li><span class="mark on">✓</span> Webhook Outgoing</li>
+            <li><span class="mark on">✓</span> Priority Support</li>
+          </ul>
+          <button class="pricing-btn">เลือกแพ็กเกจ</button>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-amount">ติดต่อ</div>
+          <div class="pricing-period">ราคาพิเศษ</div>
+          <p class="pricing-desc">สำหรับองค์กรขนาดใหญ่</p>
+          <ul class="pricing-features">
+            <li><span class="mark on">✓</span> ช่องทางไม่จำกัด</li>
+            <li><span class="mark on">✓</span> Contacts ไม่จำกัด</li>
+            <li><span class="mark on">✓</span> ข้อความไม่จำกัด</li>
+            <li><span class="mark on">✓</span> 2FA + Audit Logs</li>
+            <li><span class="mark on">✓</span> White Label</li>
+            <li><span class="mark on">✓</span> On-Premise</li>
+          </ul>
+          <button class="pricing-btn">เลือกแพ็กเกจ</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ── -->
+  <section class="section" id="testimonials" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="section-header">
+        <h2>เสียงจากลูกค้า</h2>
+        <p>ธุรกิจกว่า 12,000 แห่งไว้วางใจให้เราจัดการแชทและบริการลูกค้า</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+        <div class="avatar" aria-label="คุณสมชาย">ส</div>
+          <div class="stars">
+          <span data-icon="star" data-weight="regular"></span>
+          <span data-icon="star" data-weight="regular"></span>
+          <span data-icon="star" data-weight="regular"></span>
+          <span data-icon="star" data-weight="regular"></span>
+          <span data-icon="star" data-weight="regular"></span>
+        </div>
+        <div class="quote">NextGenBot ลดงานตอบแชทไป 70% ลูกค้าตอบกลับไวขึ้นเยอะ แถมดูรายงานการวิเคราะห์ได้แบบ Real-time</div>
+        <div class="author">คุณสมชาย</div>
+        <div class="role">เจ้าของร้านค้าออนไลน์</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="avatar" aria-label="Anna">A</div>
+          <div class="stars">
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+          </div>
+          <div class="quote">เชื่อมต่อ LINE กับ Messenger ได้ในที่เดียว ทีมงานไม่ต้องคอยสลับแอป ตอบไวขึ้นมาก ลูกค้าประทับใจ</div>
+          <div class="author">Anna</div>
+          <div class="role">Customer Service Manager</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="avatar" aria-label="คุณวิชัย">ว</div>
+          <div class="stars">
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+            <span data-icon="star" data-weight="regular"></span>
+          </div>
+          <div class="quote">AI ช่วยตอบลูกค้าเบื้องต้นได้ดีมาก ประหยัดค่าใช้จ่ายพนักงานไปหลายตำแหน่ง ตอบถูกต้อง 95%</div>
+          <div class="author">คุณวิชัย</div>
+          <div class="role">CEO — บริษัทเทคโนโลยี</div>
+        </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section id="contact" style="padding: 48px 0 80px;">
+    <div class="container">
+      <div class="contact-section">
+        <h2>พร้อมเริ่มต้นใช้งาน?</h2>
+        <p>เริ่มต้นฟรี ไม่ต้องใช้บัตรเครดิต ตั้งค่าได้ใน 5 นาที</p>
+        <div class="contact-channels">
+          <span class="contact-item"><span data-icon="envelope" data-weight="regular"></span> hello@nextgenbot.com</span>
+          <span class="contact-item"><span data-icon="headset" data-weight="regular"></span> 02-123-4567</span>
+          <span class="contact-item"><span data-icon="comment-dots" data-weight="regular"></span> LINE: @nextgenbot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NextGenBot. All rights reserved. Made with ❤️ in Thailand.</p>
+    </div>
+  </footer>
+
+  <script src="assets/data/icons.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — NextGenBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/icons/logo.svg" alt="NextGenBot" class="logo-icon">
+        NextGenBot
+      </a>
+      <div class="navbar-links">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+      </div>
+      <div class="navbar-right">
+        <div class="toggle-switch">
+          <label class="switch-label">
+            <input type="checkbox" class="checkbox" id="themeCheckbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLang">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">
+            <span data-icon="right-to-bracket" data-weight="regular"></span>
+            <span>Login</span>
+          </a>
+          <a href="register.html" class="btn-nav btn-nav-register">
+            <span data-icon="user-plus" data-weight="regular"></span>
+            <span>Register</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-right">
+        <div class="lang-select mobile-lang-select">
+          <div class="lang-selected">
+            <span data-icon="globe" data-weight="regular"></span>
+            <span class="lang-code" id="currentLangMobile">TH</span>
+            <svg class="arrow" viewBox="0 0 512 512" fill="currentColor"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+          </div>
+          <div class="lang-options">
+            <div class="lang-option active" data-lang="th" onclick="switchLang('th')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>ภาษาไทย</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+            <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+              <span data-icon="globe" data-weight="regular"></span>
+              <span>English</span>
+              <svg class="check-icon" viewBox="0 0 448 512" fill="currentColor"><path d="M441 103c9.4 9.4 9.4 24.6 0 33.9L177 401c-9.4 9.4-24.6 9.4-33.9 0L7 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l119 119L407 103c9.4-9.4 24.6-9.4 33.9 0z"/></svg>
+            </div>
+          </div>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <svg viewBox="0 0 448 512" fill="currentColor"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">หน้าแรก</a>
+        <a href="index.html#features">ฟีเจอร์</a>
+        <a href="index.html#services">บริการ</a>
+        <a href="index.html#pricing">ราคา</a>
+        <a href="index.html#contact">ติดต่อ</a>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn-nav btn-nav-login">Login</a>
+          <a href="register.html" class="btn-nav btn-nav-register">Register</a>
+        </div>
+        <div class="mobile-theme-wrapper">
+          <div class="mobile-theme-row">
+            <span data-icon="sun" data-weight="regular" id="themeIcon"></span>
+            <span id="themeLabel">โหมดสว่าง</span>
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox" id="themeCheckboxMobile">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Login Form ── -->
+  <div class="login-page">
+    <form class="form" id="loginForm">
+
+      <div class="form-title">Sign In</div>
+
+      <div class="flex-column"><label>Email</label></div>
+      <div class="inputForm">
+        <span data-icon="envelope" data-weight="regular"></span>
+        <input type="text" class="input" placeholder="Enter your Email">
+      </div>
+
+      <div class="flex-column"><label>Password</label></div>
+      <div class="inputForm">
+        <span data-icon="lock" data-weight="regular"></span>
+        <input type="password" class="input" id="passwordInput" placeholder="Enter your Password">
+        <button type="button" class="eye-btn" id="togglePassword" aria-label="Toggle password visibility">
+          <span data-icon="eye" data-weight="regular" id="eyeIcon"></span>
+        </button>
+      </div>
+
+      <div class="flex-row">
+        <div class="flex-row-left">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <span class="span" onclick="location.href='reset-password.html'">Forgot password?</span>
+      </div>
+
+      <button type="submit" class="button-submit">Sign In</button>
+
+      <p class="p">Don't have an account? <span class="span" onclick="location.href='register.html'">Sign Up</span></p>
+
+      <p class="p line">Or With</p>
+
+      <div class="flex-row" style="gap:12px;">
+        <button type="button" class="btn">
+          <span data-icon="google" data-weight="brands"></span>
+          Google
+        </button>
+        <button type="button" class="btn">
+          <span data-icon="apple" data-weight="brands"></span>
+          Apple
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="assets/data/icons.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NextGenBot. All rights reserved. Made with ❤️ in Thailand.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Toggle Password ──
+    setupToggle('togglePassword', 'passwordInput', 'eyeIcon');
+  </script>
+</body>
+</html>
